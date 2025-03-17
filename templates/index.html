@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Song Title Generator</title>
+</head>
+<body>
+    <h1>Parry Gripp Style Song Title Generator</h1>
+    <button onclick="generateTitle()">Generate Title</button>
+    <h2 id="song-title">Press the button!</h2>
+
+    <script>
+        async function generateTitle() {
+            const response = await fetch('/generate');
+            const data = await response.json();
+            document.getElementById('song-title').innerText = data.title;
+        }
+    </script>
+</body>
+</html>
