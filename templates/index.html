@@ -2,19 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Random Song Title Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parry Gripp Style Song Title Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Parry Gripp Style Song Title Generator</h1>
-    <button onclick="generateTitle()">Generate Title</button>
-    <h2 id="song-title">Press the button!</h2>
+    <div class="container">
+        <header>
+            <h1 class="title">Parry Gripp Style Song Title Generator</h1>
+            <p class="subtitle">Create wacky song titles like "Space Unicorn" and "Raining Tacos"!</p>
+        </header>
 
-    <script>
-        async function generateTitle() {
-            const response = await fetch('/generate');
-            const data = await response.json();
-            document.getElementById('song-title').innerText = data.title;
-        }
-    </script>
+        <main>
+            <div class="generator-section">
+                <button id="generate-btn" class="btn-generate">Generate Random Song Title!</button>
+                <div class="title-display">
+                    <h2 id="song-title">Press the button to generate a song title!</h2>
+                </div>
+            </div>
+
+            <div class="animation-section">
+                <h3>Your Song Character</h3>
+                <div id="animation-container">
+                    <svg id="character-svg" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Character will be drawn here -->
+                        <text x="150" y="150" text-anchor="middle">Generate a title first!</text>
+                    </svg>
+                </div>
+                <button id="animate-btn" class="btn-animate" disabled>Animate Character!</button>
+            </div>
+
+            <div class="drawing-section">
+                <h3>Draw Your Own Character</h3>
+                <div class="drawing-tools">
+                    <label for="color-picker">Color:</label>
+                    <input type="color" id="color-picker" value="#000000">
+                    <label for="brush-size">Size:</label>
+                    <input type="range" id="brush-size" min="1" max="20" value="5">
+                    <button id="clear-btn" class="btn-clear">Clear</button>
+                </div>
+                <canvas id="drawing-canvas" width="400" height="400"></canvas>
+                <button id="save-drawing-btn" class="btn-save">Save & Animate Drawing</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Inspired by <a href="https://www.youtube.com/user/ParryGripp" target="_blank">Parry Gripp</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
