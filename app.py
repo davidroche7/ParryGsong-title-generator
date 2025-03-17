@@ -4,10 +4,10 @@ import random
 app = Flask(__name__)
 
 # Random song title generator
-animals = ["Hamster", "Cat", "Pug", "Penguin", "Llama", "Sloth"]
-actions = ["Dancing", "Singing", "Riding a Skateboard", "Eating Tacos"]
-objects = ["Banana", "Cheeseburger", "Spaceship", "Cupcake"]
-exclamations = ["!", "!!", "!!!", "(Very Loud)"]
+animals = ["Hamster", "Cat", "Pug", "Penguin", "Llama", "Sloth", "Eleanor", "Weasel", "Bird"]
+actions = ["Dancing", "Singing", "Riding a Skateboard", "Eating Tacos", "Twirling"]
+objects = ["Banana", "Cheeseburger", "Spaceship", "Cupcake", "Rainbow", "Unicycle", "Segway"]
+exclamations = ["!", "!!", "!!!]
 
 def generate_title():
     return f"{random.choice(animals)} {random.choice(actions)} {random.choice(objects)}{random.choice(exclamations)}"
