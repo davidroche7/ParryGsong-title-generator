@@ -1,0 +1,206 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --dark-color: #292f36;
+    --light-color: #f7fff7;
+    --gradient: linear-gradient(to right, #ff6b6b, #4ecdc4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    opacity: 0.8;
+}
+
+.generator-section, .animation-section, .drawing-section {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-generate, .btn-animate, .btn-save, .btn-clear {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-generate {
+    background: var(--gradient);
+    color: white;
+    margin-bottom: 1rem;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+}
+
+.btn-generate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-animate, .btn-save {
+    background-color: var(--secondary-color);
+    color: white;
+    margin: 1rem auto;
+    display: block;
+}
+
+.btn-animate:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn-clear {
+    background-color: var(--dark-color);
+    color: white;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.title-display {
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#song-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    padding: 1.5rem;
+    background-color: var(--accent-color);
+    border-radius: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#animation-container {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 3px dashed var(--primary-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.drawing-tools {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.drawing-tools label {
+    font-weight: bold;
+}
+
+#drawing-canvas {
+    border: 3px solid var(--dark-color);
+    border-radius: 0.5rem;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+    cursor: crosshair;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.animated {
+    animation: bounce 1s infinite;
+}
+
+.spin {
+    animation: spin 2s infinite linear;
+}
+
+.wiggle {
+    animation: wiggle 0.5s infinite;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--dark-color);
+    opacity: 0.7;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    #song-title {
+        font-size: 1.5rem;
+    }
+    
+    #drawing-canvas {
+        width: 100%;
+        height: auto;
+    }
+}
